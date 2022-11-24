@@ -1,6 +1,5 @@
 package com.tutorial.hellospringtaco.controllers;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,7 +36,8 @@ public class MakeTacoController {
             new Ingredient("BBB", "ψωμί", Type.WRAP),
             new Ingredient("BBB", "πίτα", Type.WRAP),
             new Ingredient("CCC", "μαγιονέζα", Type.SAUCE),
-            new Ingredient("CCC", "γιαούρτι", Type.SAUCE)
+            new Ingredient("CCC", "γιαούρτι", Type.SAUCE),
+            new Ingredient("CCC", "τζατζίκι", Type.SAUCE)
         );
 
         Type[] allTypes = Ingredient.Type.values();
@@ -60,7 +60,7 @@ public class MakeTacoController {
     public String showDesignForm(){
         return "design";        
     }
-    
+
     /**
      * Return (iterable) ingredients of a specific type
      * @param list
