@@ -1,4 +1,4 @@
-package com.tutorial.hellospringtaco;
+package com.tutorial.hellospringtaco.model;
 
 import lombok.Data;
 

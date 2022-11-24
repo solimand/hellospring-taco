@@ -1,4 +1,4 @@
-package com.tutorial.hellospringtaco;
+package com.tutorial.hellospringtaco.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
