@@ -72,8 +72,16 @@ public class MakeTacoController {
         return list.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
     }
 
+    /**
+     * the sam as GetMapping, if used in combination with RequestMapping, 
+     * this method handles the POST to the /design page
+     * @param taco
+     * @param order
+     */
     @PostMapping
-    public void processTaco(Taco taco, @ModelAttribute TacoOrder order){
-        
+    public String processTaco(Taco taco, @ModelAttribute TacoOrder order){
+        order.addTaco(taco);
+        log.info("Processing Greek Taco {}", taco);
+        return "redirect:/orders/current";
     }
 }

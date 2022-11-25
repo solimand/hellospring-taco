@@ -10,9 +10,13 @@ xmlns:th="http://www.thymeleaf.org">
     <h1>Design your Greek taco!</h1>
     <img th:src="@{/images/tacohome.jpg}"/>
     
+    <!-- a <form> without action method will send all the data of the form to the server,
+        at the same page of the GET that  displayed it-->
     <form method="POST" th:object="${taco}">
 
     <!-- Add a div for each ingredient group-->
+    <!-- each checkbox with name 'ingredients' will correspond to the Ingredients of a Taco class.
+        Since you can choose many of them, the bind will be with a List<Ingredient>-->
     <div class="grid">
         <div class="ingredient-group" id="wraps">
         <h3>Designate your wrap:</h3>
@@ -40,6 +44,7 @@ xmlns:th="http://www.thymeleaf.org">
 
     </div>
 
+    <!-- the field with name 'name' will correspond to the property name in the Taco class-->
     <div>
     <h3>Name your taco creation:</h3>
     <input type="text" th:field="*{name}"/>
