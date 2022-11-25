@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -32,12 +33,12 @@ public class MakeTacoController {
     public void addIngredientsToModel(Model model){
         List <Ingredient> ingredients = Arrays.asList(
             new Ingredient("AAA", "καλαμαράκια", Type.VEGGIES),
-            new Ingredient("AAA", "φασόλια", Type.VEGGIES),            
-            new Ingredient("BBB", "ψωμί", Type.WRAP),
-            new Ingredient("BBB", "πίτα", Type.WRAP),
-            new Ingredient("CCC", "μαγιονέζα", Type.SAUCE),
-            new Ingredient("CCC", "γιαούρτι", Type.SAUCE),
-            new Ingredient("CCC", "τζατζίκι", Type.SAUCE)
+            new Ingredient("BBB", "φασόλια", Type.VEGGIES),            
+            new Ingredient("CCC", "ψωμί", Type.WRAP),
+            new Ingredient("DDD", "πίτα", Type.WRAP),
+            new Ingredient("EEE", "μαγιονέζα", Type.SAUCE),
+            new Ingredient("FFF", "γιαούρτι", Type.SAUCE),
+            new Ingredient("GGG", "τζατζίκι", Type.SAUCE)
         );
 
         Type[] allTypes = Ingredient.Type.values();
@@ -69,5 +70,10 @@ public class MakeTacoController {
      */
     private Iterable<Ingredient> filterByType(List<Ingredient> list, Type type){
         return list.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
+    }
+
+    @PostMapping
+    public void processTaco(Taco taco, @ModelAttribute TacoOrder order){
+        
     }
 }
